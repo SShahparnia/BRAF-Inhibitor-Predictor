@@ -24,8 +24,8 @@ seaborn
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/SShahparnia/BRAF-Inhibitor-PredictorBRAF.git
-   cd BRAF-Inhibitor-PredictorBRAF
+   git clone https://github.com/SShahparnia/BRAF-Inhibitor-Predictor.git
+   cd BRAF-Inhibitor-Predictor
    ```
 2. Install the required packages:
    ```bash
