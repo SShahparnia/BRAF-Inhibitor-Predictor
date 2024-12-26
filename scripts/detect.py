@@ -9,25 +9,29 @@ Authors: Shervan Shahparnia, Jason Tobin, Miles Thames
 import pandas as pd
 import pickle
 from sklearn.preprocessing import StandardScaler
+import os
 
 def load_models():
     """
     Load the saved models and preprocessing files.
     """
     print("Loading saved models and preprocessing files...")
-    with open("svm_model.pkl", "rb") as model_file:
+    script_dir = os.path.dirname(__file__)
+    model_path = os.path.join(script_dir, "../models/svm_model.pkl")
+    scaler_path = os.path.join(script_dir, "../models/scaler.pkl")
+    pca_path = os.path.join(script_dir, "../models/pca.pkl")
+    feature_names_path = os.path.join(script_dir, "../models/feature_names.pkl")
+    median_values_path = os.path.join(script_dir, "../models/median_values.pkl")
+
+    with open(model_path, "rb") as model_file:
         svm_model = pickle.load(model_file)
-
-    with open("scaler.pkl", "rb") as scaler_file:
+    with open(scaler_path, "rb") as scaler_file:
         scaler = pickle.load(scaler_file)
-
-    with open("pca.pkl", "rb") as pca_file:
+    with open(pca_path, "rb") as pca_file:
         pca = pickle.load(pca_file)
-
-    with open("feature_names.pkl", "rb") as feature_file:
+    with open(feature_names_path, "rb") as feature_file:
         feature_names = pickle.load(feature_file)
-
-    with open("median_values.pkl", "rb") as median_file:
+    with open(median_values_path, "rb") as median_file:
         median_values = pickle.load(median_file)
 
     print("Models and files loaded successfully.\n")

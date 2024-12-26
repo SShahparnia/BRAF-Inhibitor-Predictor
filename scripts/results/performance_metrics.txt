@@ -1,0 +1,14 @@
+Model Accuracy on Test Set: 97.959%
+Model Precision on Test Set: 98.017%
+Model Recall on Test Set: 97.959%
+Model F1-Score on Test Set: 97.939%
+
+Classification Report:
+               precision    recall  f1-score   support
+
+Non-Inhibitor       1.00      0.93      0.97        15
+    Inhibitor       0.97      1.00      0.99        34
+
+     accuracy                           0.98        49
+    macro avg       0.99      0.97      0.98        49
+ weighted avg       0.98      0.98      0.98        49

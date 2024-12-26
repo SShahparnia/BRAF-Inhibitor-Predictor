@@ -20,6 +20,7 @@ from sklearn.svm import SVC
 from sklearn.metrics import classification_report, accuracy_score, precision_score
 import time
 import matplotlib.pyplot as plt
+import os
 
 def main():
     """
@@ -30,7 +31,8 @@ def main():
 
     # Load the CSV file
     print("Loading dataset...")
-    file_path = "chemical_compounds.csv"
+    script_dir = os.path.dirname(__file__)
+    file_path = os.path.join(script_dir, "../data/chemical_compounds.csv")
     data = pd.read_csv(file_path)
     print(f"Dataset loaded. Total records: {len(data)}\n")
 
@@ -97,19 +99,19 @@ def main():
 
     # Save the trained model, scaler, PCA, feature names, and median values
     print("Saving the model, scaler, PCA, feature names, and median values...")
-    with open("svm_model.pkl", "wb") as model_file:
+    with open("../models/svm_model.pkl", "wb") as model_file:
         pickle.dump(svm_model, model_file)
 
-    with open("scaler.pkl", "wb") as scaler_file:
+    with open("../models/scaler.pkl", "wb") as scaler_file:
         pickle.dump(scaler, scaler_file)
 
-    with open("pca.pkl", "wb") as pca_file:
+    with open("../models/pca.pkl", "wb") as pca_file:
         pickle.dump(pca, pca_file)
 
-    with open("feature_names.pkl", "wb") as feature_file:
+    with open("../models/feature_names.pkl", "wb") as feature_file:
         pickle.dump(X_filled.columns.tolist(), feature_file)
 
-    with open("median_values.pkl", "wb") as median_file:
+    with open("../models/median_values.pkl", "wb") as median_file:
         pickle.dump(median_values, median_file)
 
     # Evaluate the model's performance on the test set
