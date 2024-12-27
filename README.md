@@ -1,3 +1,4 @@
+
 # BRAF Inhibitor Predictor
 
 ## Description
@@ -6,7 +7,7 @@ This project leverages machine learning techniques using scikit-learn and other 
 
 ## Requirements
 
-```
+```bash
 flask
 matplotlib
 numpy
@@ -36,44 +37,66 @@ seaborn
 
 ## Usage
 
-1. **Training the Model:**
+### 1. Training the Model
+Run the script to train the model:
+```bash
+python scripts/train.py
+```
+
+### 2. Running Molecule Detection
+Execute the detection script to analyze data:
+```bash
+python scripts/detect.py
+```
+
+### 3. Generating Metrics
+Generate evaluation metrics with:
+```bash
+python scripts/generate_metrics.py
+```
+
+### 4. Running the Flask App
+Start the Flask server to interact with the model through a web interface:
+
+1. Run the application:
    ```bash
-   python train.py
+   python scripts/app.py
    ```
-2. **Running Detection:**
-   ```bash
-   python detect.py
+2. Open your web browser and navigate to:
    ```
-3. **Generating Metrics:**
-   ```bash
-   python generate_metrics.py
+   http://127.0.0.1:5000
    ```
-4. **Running the Flask App:**
-   Start the Flask server to interact with the model through a web interface:
-   ```bash
-   python app.py
-   ```
-   Open your web browser and navigate to `http://127.0.0.1:5000` to use the application.
+   This will load the web interface where you can upload input data and view predictions.
+
+### Example Workflow:
+1. Prepare your input data (stored in the `data/` directory).
+2. Use the training script to build the model.
+3. Run the Flask app to interact with the predictor.
 
 ## Project Structure
 
-- `train.py` - Model training pipeline
-- `detect.py` - Molecule detection
-- `generate_metrics.py` - Evaluation metrics generator
-- `app.py` - Flask app providing a web interface
-- `templates/` - HTML templates for the Flask app
-- `static/` - Static files (e.g., CSS, JavaScript) for the Flask app
+- **data/** - Directory containing datasets and input files.
+- **models/** - Folder for storing trained models.
+- **scripts/** - Contains Python scripts for training, detection, and metrics generation.
+  - `train.py` - Script for training the model.
+  - `detect.py` - Molecule detection script.
+  - `generate_metrics.py` - Evaluation metrics generator.
+  - `app.py` - Flask app providing a web interface.
+- **templates/** - HTML templates for the Flask app.
+- **LICENSE** - License file for the project.
+- **README.md** - Documentation and usage guide.
+- **requirements.txt** - List of dependencies.
 
 ## License
 
-MIT License
+This project is licensed under the MIT License. See the `LICENSE` file for details.
 
 ## Acknowledgments
 
-- scikit-learn
-- pandas
-- matplotlib
-- Flask
+- [scikit-learn](https://scikit-learn.org/)
+- [pandas](https://pandas.pydata.org/)
+- [matplotlib](https://matplotlib.org/)
+- [Flask](https://flask.palletsprojects.com/)
 
 ---
 
